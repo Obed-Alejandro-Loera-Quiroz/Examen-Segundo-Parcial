@@ -1,0 +1,708 @@
+/* Fuente y base */
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* Encabezado */
+.header {
+  background-color: #003366;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  flex-wrap: wrap;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.brand-name {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.slogan {
+  font-size: 0.8rem;
+  margin: 2px 0 0;
+  color: #cdd7f3;
+}
+
+/* Menú principal */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 8px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.menu a:hover {
+  opacity: 0.8;
+}
+
+/* Contenedor de usuario en el menú */
+#menuUser {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+/* Texto de usuario logueado */
+#menuUser span {
+  font-weight: 500;
+  color: #cdd7f3;
+  font-size: 0.9rem;
+}
+
+/* Botón de cerrar sesión estilo profesional */
+#menuUser button {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: transparent;       /* Fondo transparente */
+  border: 1px solid rgba(255, 255, 255, 0.7); /* Borde sutil blanco semitransparente */
+  color: white;                        /* Texto blanco */
+  padding: 6px 12px;                   /* Tamaño cómodo */
+  font-size: 0.85rem;                  /* Tamaño similar a los links */
+  border-radius: 6px;                   /* Bordes redondeados */
+  cursor: pointer;
+  transition: all 0.3s ease;           /* Transición suave */
+  font-weight: 500;                     /* Texto consistente con menú */
+}
+
+/* Hover: fondo ligeramente blanco translúcido */
+#menuUser button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: white;                 /* Borde blanco al pasar el mouse */
+  color: #ffffff;
+  transform: translateY(-1px);         /* Pequeño efecto de elevación */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajuste responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  #menuUser {
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  #menuUser button {
+    margin-top: 4px;
+  }
+}
+
+/* Main layout */
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  gap: 40px;
+}
+
+/* Login */
+.login-section {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.login-section h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #084298;
+}
+
+/* Certificaciones */
+.certificaciones {
+  flex: 1;
+  min-width: 400px;
+  text-align: center;
+}
+
+.certificaciones h2 {
+  color: #003366;
+  margin-bottom: 25px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 270px;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  color: #003366;
+  text-align: center;
+}
+
+.btn-secondary {
+  display: block;
+  text-align: center;
+  background-color: #0d6efd;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #084298;
+}
+
+.btn-disabled {
+  background-color: #ccc;
+  color: #555;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  width: 100%;
+  cursor: not-allowed;
+}
+
+/* Footer */
+.footer {
+  background-color: #f8f9fa;
+  color: #555;
+  text-align: center;
+  padding: 15px 0;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-section {
+    width: 90%;
+  }
+}
+/* ====== SECCIÓN NOSOTROS (Equipo) ====== */
+.nosotros-section {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.nosotros-section h2 {
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.nosotros-intro {
+  max-width: 750px;
+  margin: 0 auto 40px auto;
+  color: #444;
+  line-height: 1.6;
+}
+
+.equipo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.miembro {
+  background-color: #f9fafc;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  width: 260px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.miembro:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.miembro-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0d6efd;
+  margin-bottom: 12px;
+}
+
+.miembro h3 {
+  margin: 5px 0;
+  color: #003366;
+  font-size: 1.1rem;
+}
+
+.rol {
+  color: #0d6efd;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.miembro p {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .equipo-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .miembro {
+    width: 80%;
+  }
+}
+
+
+/* ====== SECCIÓN CONTACTO ====== */
+.contacto-section {
+  background-color: #e9eff9;
+  padding: 50px 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.contacto-section h2 {
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  margin-top: 10px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 4px rgba(13, 110, 253, 0.3);
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .nosotros-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nosotros-img {
+    width: 80%;
+  }
+}
+
+/* ====== PÁGINA DE CERTIFICACIONES ====== */
+.certificaciones-page {
+  text-align: center;
+  flex: 1;
+  min-width: 400px;
+}
+
+.certificaciones-page h2 {
+  color: #003366;
+  margin-bottom: 25px;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+/* Botón de pago */
+.btn-pay {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.1s ease-in-out;
+}
+
+.btn-pay:hover {
+  background-color: #1f8c3c;
+  transform: translateY(-2px);
+}
+
+.btn-pay:disabled {
+  background-color: #a6a6a6;
+  cursor: not-allowed;
+}
+
+/* Botón de "Obtener Certificación" */
+.btn-secondary {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.1s ease-in-out, opacity 0.2s;
+}
+
+/* Estado deshabilitado / no pagado */
+.btn-secondary[data-paid="false"] {
+  opacity: 0.6;
+  cursor: pointer; /* permitido para mostrar alerta */
+}
+
+.btn-secondary[data-paid="true"] {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.btn-secondary:hover[data-paid="true"] {
+  background-color: #00264d;
+  transform: translateY(-2px);
+}
+
+/* Menú activo */
+.menu a.active {
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+ /* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close {
+  color: #333;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-btn {
+  margin-top: 15px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #003366;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-btn:hover {
+  background-color: #00264d;
+}
+
+
+/* ====== PÁGINA DE CONTACTO ====== */
+.contacto-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+/* Formulario de contacto */
+.contact-form-section {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+}
+
+.contact-form-section h2 {
+  color: #003366;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.contact-form button {
+  margin-top: 10px;
+}
+
+/* Información de contacto */
+.contact-info-section {
+  background: #f9fbff;
+  padding: 25px 35px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+}
+
+.contact-info-section h2 {
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.socials {
+  margin-top: 15px;
+}
+
+.social-link {
+  display: inline-block;
+  background-color: #0d6efd;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 8px;
+  transition: background-color 0.2s;
+}
+
+.social-link:hover {
+  background-color: #084298;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contacto-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form-section, 
+  .contact-info-section {
+    width: 90%;
+  }
+}
+
+/* ====== PÁGINA NOSOTROS ====== */
+.about-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 40px;
+  background-color: #f4f6f8;
+}
+
+.about-section {
+  max-width: 800px;
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+.about-section p {
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+/* Sección del equipo */
+.team-section {
+  text-align: center;
+  max-width: 1000px;
+}
+
+.team-section h2 {
+  color: #003366;
+  margin-bottom: 25px;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.team-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 260px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.team-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.team-role {
+  color: #0d6efd;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.team-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .team-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .team-card {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+

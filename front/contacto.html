@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Pamilon Tech Certifications</title>
+  <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="logo-area">
+      <img src="Img/LOGOPAMILONCERTIFICATIONS.png" alt="Logo" class="logo">
+      <div>
+        <h1 class="brand-name">Pamilon Tech Certifications</h1>
+        <p class="slogan">“Certifica tu talento, impulsa tu futuro”</p>
+      </div>
+    </div>
+
+    <nav class="menu">
+  <a href="index.html">Inicio</a>
+  <a href="certificaciones.html">Certificaciones</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="contacto.html">Contacto</a>
+  
+  <!-- Zona de usuario que se actualizará -->
+  <div id="menuUser">
+    <a href="login.html">Iniciar sesión</a>
+  </div>
+</nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main-content contacto-page">
+    <section class="contact-form-section">
+      <h2>Envíanos un mensaje</h2>
+      <p>¿Tienes dudas sobre alguna certificación o necesitas asistencia? Escríbenos, estaremos encantados de ayudarte.</p>
+
+      <form id="contactForm" class="contact-form">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+
+        <button type="submit" class="btn-primary">Enviar mensaje</button>
+      </form>
+    </section>
+
+    <section class="contact-info-section">
+      <h2>Contáctanos</h2>
+      <div class="contact-info">
+        <p><strong>📧 Correo:</strong> </p>
+        <p><strong>📞 Teléfono:</strong> +449 138 4881</p>
+        <p><strong>🏢 Dirección:</strong> Universidad Autonoma de Aguascalientes</p>
+        <p><strong>🕓 Horario de atención:</strong> Lunes a Viernes, 7:00 a.m. – 8:00 p.m.</p>
+      </div>
+      <div class="socials">
+        <p>Síguenos en nuestras redes:</p>
+        <a href="#" class="social-link">🌐 Facebook</a>
+        <a href="#" class="social-link">🐦 Twitter</a>
+        <a href="#" class="social-link">💼 LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie -->
+  <footer class="footer">
+    © 2025 Pamilon Tech Certifications — Todos los derechos reservados.
+  </footer>
+
+  <script src="JS/app.js"></script>
+</body>
+</html>
