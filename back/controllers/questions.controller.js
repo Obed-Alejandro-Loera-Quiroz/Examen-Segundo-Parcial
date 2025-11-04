@@ -2,7 +2,7 @@ const QUESTIONS = require("../data/questions");
 
 // --- 1) Enviar preguntas al frontend ---
 const startQuiz = (req, res) => {
-  console.log("Acceso concedido al api /api/questions/start a Pamilon Tech Certifications");
+  console.log("Inicio examen de Pamilon Thech Certifications ");
 
   // Mezcla las preguntas y selecciona 8 al azar
   const shuffled = QUESTIONS.sort(() => 0.5 - Math.random());

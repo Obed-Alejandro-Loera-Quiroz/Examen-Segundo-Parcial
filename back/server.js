@@ -10,8 +10,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const ALLOWED_ORIGINS = [
+  'http://127.0.0.1:5500', // Live Server local
   'http://localhost:5500',
-  'http://127.0.0.1:5500',
+  'http://10.13.140.99:5500', 
+  'http://10.13.140.90:5500',
+   // Alternativa (según navegador)
 ];
 
 app.use(cors({ 

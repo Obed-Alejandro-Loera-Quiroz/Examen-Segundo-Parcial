@@ -37,22 +37,39 @@ const certificaciones = {
 if (certId && certificaciones[certId]) {
   const c = certificaciones[certId];
   document.getElementById("tituloExamen").textContent = `Examen de ${c.nombre}`;
-  document.getElementById("certDesc").textContent = "📘 " + c.descripcion;
-  document.getElementById("certVentajas").textContent = "⭐ " + c.ventajas;
+  document.getElementById("certDesc").textContent = c.descripcion;
+  document.getElementById("certVentajas").textContent =  c.ventajas;
   document.getElementById("certPunt").textContent = c.puntuacion;
   document.getElementById("certTiempo").textContent = c.tiempo;
   infoCert.style.display = "block";
 }
 
 // 🔹 Verificar si el examen ya fue realizado
-if (localStorage.getItem(`examen_realizado_${certId}`) === "true") {
-  btnCargar.disabled = true;
+let examenRealizado = localStorage.getItem(`examen_realizado_${certId}`) === "true";
+
+if (examenRealizado) {
   btnCargar.textContent = "Examen ya realizado";
-  btnCargar.classList.add("disabled-btn"); // opcional, puedes dar estilo visual
+  btnCargar.classList.add("disabled-btn"); // estilo opcional
+  const msg = document.createElement("p");
+  msg.textContent = "✔ Ya completaste este examen.";
+  msg.style.color = "#007700";
+  msg.style.fontWeight = "bold";
+  msg.style.marginTop = "10px";
+  btnCargar.insertAdjacentElement("afterend", msg);
 }
 
-// Cargar examen
+// 🔹 Evento click del botón
 btnCargar.addEventListener("click", async () => {
+  if (examenRealizado) {
+    Swal.fire({
+      icon: "warning",
+      title: "Examen ya realizado",
+      text: "Este examen solo puede hacerse una vez.",
+      confirmButtonColor: "#003366",
+    });
+    return; // Evita que continúe
+  }
+
   // Ocultar el botón al iniciar
   btnCargar.style.display = "none";
 
@@ -72,7 +89,6 @@ btnCargar.addEventListener("click", async () => {
         "No se encontraron preguntas para esta certificación.",
         "error"
       );
-      // Mostrar el botón de nuevo si falla la carga
       btnCargar.style.display = "block";
       return;
     }
@@ -100,7 +116,6 @@ btnCargar.addEventListener("click", async () => {
     resultado.innerHTML = "";
   } catch (err) {
     Swal.fire("Error", "No se pudo cargar el examen.", "error");
-    // Mostrar el botón si hubo error
     btnCargar.style.display = "block";
   }
 });
@@ -127,8 +142,9 @@ quizForm.addEventListener("submit", async (e) => {
 
     const data = await res.json();
 
-    // ✅ Guardar que el examen ya se hizo
+    // Guardar que el examen ya se hizo
     localStorage.setItem(`examen_realizado_${certId}`, "true");
+    examenRealizado = true;
 
     Swal.fire({
       icon: "info",
@@ -155,15 +171,14 @@ quizForm.addEventListener("submit", async (e) => {
           .join("")}
       `;
 
-      // 🔹 Desactivar botón y formulario
-      btnCargar.disabled = true;
+      // 🔹 Mostrar el botón de nuevo
       btnCargar.textContent = "Examen ya realizado";
       btnCargar.style.display = "block";
       quizForm.style.display = "none";
 
       // 🔹 Calcular si aprobó (7/8 o más)
       const porcentaje = (data.score / data.total) * 100;
-      const aprobado = porcentaje >= 87.5; // 7/8 = 87.5%
+      const aprobado = porcentaje >= 87.5;
 
       if (aprobado) {
         Swal.fire({
@@ -173,17 +188,20 @@ quizForm.addEventListener("submit", async (e) => {
           confirmButtonText: "Descargar certificado",
         }).then(async () => {
           // 🔹 Generar el PDF llamando al servidor
-          const certificadoRes = await fetch("http://localhost:3000/api/generar-pdf", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              nombreCompleto: nombre,
-              certificacion: certificaciones[certId].nombre,
-              puntaje: data.score,
-              total: data.total,
-              fecha: new Date().toLocaleDateString(),
-            }),
-          });
+          const certificadoRes = await fetch(
+            "http://localhost:3000/api/generar-pdf",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                nombreCompleto: nombre,
+                certificacion: certificaciones[certId].nombre,
+                puntaje: data.score,
+                total: data.total,
+                fecha: new Date().toLocaleDateString(),
+              }),
+            }
+          );
 
           const blob = await certificadoRes.blob();
           const url = window.URL.createObjectURL(blob);
@@ -196,7 +214,7 @@ quizForm.addEventListener("submit", async (e) => {
       } else {
         Swal.fire({
           icon: "error",
-          title: "No aprobaste 😢",
+          title: "No aprobaste",
           text: "Puedes repasar y volver a intentarlo más adelante.",
         });
       }
