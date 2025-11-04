@@ -24,19 +24,19 @@ body {
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 8px;
 }
 
 .brand-name {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .slogan {
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin: 2px 0 0;
   color: #cdd7f3;
 }
@@ -230,13 +230,78 @@ body {
 
 /* Footer */
 .footer {
-  background-color: #f8f9fa;
-  color: #555;
-  text-align: center;
-  padding: 15px 0;
-  border-top: 1px solid #ddd;
-  font-size: 14px;
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 40px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
 }
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* El main ocupa todo el espacio disponible */
+main {
+  flex: 1;
+}
+
+.footer-about, .footer-contact, .footer-socials {
+  flex: 1 1 250px;
+}
+
+.footer-about h3, .footer-contact h4, .footer-socials h4 {
+  margin-bottom: 15px;
+  color: white;
+}
+
+.footer-about p, .footer-contact p, .footer-socials p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-socials .social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-socials .social-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.footer-socials .social-link:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-socials .social-links {
+    justify-content: center;
+  }
+}
+
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -515,103 +580,6 @@ body {
   background-color: #00264d;
 }
 
-
-/* ====== PÁGINA DE CONTACTO ====== */
-.contacto-page {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 40px 20px;
-}
-
-/* Formulario de contacto */
-.contact-form-section {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  width: 350px;
-}
-
-.contact-form-section h2 {
-  color: #003366;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: inherit;
-}
-
-.contact-form button {
-  margin-top: 10px;
-}
-
-/* Información de contacto */
-.contact-info-section {
-  background: #f9fbff;
-  padding: 25px 35px;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-  max-width: 400px;
-}
-
-.contact-info-section h2 {
-  color: #003366;
-  margin-bottom: 10px;
-}
-
-.contact-info p {
-  margin: 8px 0;
-  font-size: 0.95rem;
-}
-
-.socials {
-  margin-top: 15px;
-}
-
-.social-link {
-  display: inline-block;
-  background-color: #0d6efd;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
-  margin-right: 8px;
-  transition: background-color 0.2s;
-}
-
-.social-link:hover {
-  background-color: #084298;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .contacto-page {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-form-section, 
-  .contact-info-section {
-    width: 90%;
-  }
-}
-
 /* ====== PÁGINA NOSOTROS ====== */
 .about-page {
   display: flex;
@@ -706,3 +674,18 @@ body {
   }
 }
 
+
+
+/* ==== Imagen dentro de las tarjetas de certificación ==== */
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.03);
+}

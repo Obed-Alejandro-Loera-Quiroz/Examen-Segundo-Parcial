@@ -1,5 +1,7 @@
 const express = require("express");
 const authRoutes = require("./routes/auth.routes");
+const questionsRoutes = require("./routes/questions.routes");
+const contactRoutes = require("./routes/contact.routes");
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,6 +34,8 @@ app.use(cors({
 
 // Montar rutas bajo /api
 app.use("/api", authRoutes);
+app.use("/api/questions", questionsRoutes);
+app.use("/contact", contactRoutes);
 
 // (Opcional) Ruta de salud
 app.get("/health", (_req, res) => res.json({ ok: true }));

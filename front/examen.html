@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/418015f8fb.js" crossorigin="anonymous"></script>
+  <title>Examen - Pamilon Tech Certifications</title>
+  <link rel="stylesheet" href="CSS/estilos.css">
+  <link rel="stylesheet" href="CSS/estilos2.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="logo-area">
+      <img src="Img/logo.png" alt="Logo" class="logo">
+      <div>
+        <h1 class="brand-name">Pamilon Tech Certifications</h1>
+        <p class="slogan">“Certifica tu talento, impulsa tu futuro”</p>
+      </div>
+    </div>
+
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="certificaciones.html" class="active">Certificaciones</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+      <div id="menuUser"><a href="login.html">Iniciar sesión</a></div>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <h1 id="tituloExamen">Examen</h1>
+
+    <!-- Info de certificación -->
+    <div id="infoCert" class="cert-info" style="display:none;">
+      <h2 id="certName"></h2>
+      <p id="certDesc"></p>
+      <p id="certVentajas"></p>
+      <p><strong>Puntuación mínima:</strong> <span id="certPunt"></span></p>
+      <p><strong>Tiempo límite:</strong> <span id="certTiempo"></span></p>
+    </div>
+
+      <!-- 🔹 Imagen del examen -->
+  <div class="exam-image-container">
+    <img src="Img/java.png" alt="Examen Pamilon Tech" class="exam-image">
+  </div>
+
+    <button id="btnCargar">Iniciar Examen</button>
+
+    <form id="quizForm" style="display:none;">
+      <div id="listaPreguntas"></div>
+      <button type="submit">Enviar respuestas</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    
+  </main>
+  <!-- Pie de página -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3>Pamilon Tech Certifications</h3>
+      <p>Certifica tu talento, impulsa tu futuro. Educación accesible y de calidad para tu desarrollo profesional.</p>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contáctanos</h4>
+      <p><i class="fa-solid fa-envelope"></i> pamilontechcertificationspamil@gmail.com</p>
+      <p><i class="fa-solid fa-phone"></i> +449 138 4881</p>
+      <p><i class="fa-solid fa-map-location-dot"></i> Universidad Autónoma de Aguascalientes</p>
+    </div>
+
+    <div class="footer-socials">
+      <h4>Síguenos</h4>
+      <div class="social-links">
+        <a href="https://www.instagram.com/certificadospamilon/" class="social-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Pamilon Tech Certifications — Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+  <script src="JS/app.js"></script>
+  <script src="JS/examen.js"></script>
+</body>
+</html>

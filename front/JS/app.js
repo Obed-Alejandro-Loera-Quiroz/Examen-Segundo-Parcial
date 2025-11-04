@@ -17,7 +17,11 @@ async function handleLogin(e) {
   loginError.textContent = "";
 
   if (!login || !password) {
-    loginError.textContent = "Por favor completa todos los campos.";
+    Swal.fire({
+      icon: 'warning',
+      title: 'Campos incompletos',
+      text: 'Por favor completa todos los campos.'
+    });
     return;
   }
 
@@ -42,14 +46,28 @@ async function handleLogin(e) {
     // Actualizar menú
     updateMenu(cuenta);
 
+    // Mostrar alerta de éxito
+    await Swal.fire({
+      icon: 'success',
+      title: '¡Bienvenido!',
+      text: `Has iniciado sesión como ${cuenta}.`,
+      timer: 2000,
+      showConfirmButton: false
+    });
+
     // Redirigir a la página principal
     window.location.href = "index.html";
 
   } catch (err) {
     console.error(err);
-    loginError.textContent = "Error al iniciar sesión. Verifica tus datos.";
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Credenciales incorrectas o problema al iniciar sesión.'
+    });
   }
 }
+
 
 // Verificar sesión al cargar cualquier página
 function checkSession() {
@@ -74,17 +92,46 @@ function updateMenu(user) {
 
 // Cerrar sesión
 async function logout() {
-  try {
-    const res = await fetch("http://localhost:3000/api/logout", {
-      method: "POST",
-      headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
-    });
-    if (!res.ok) console.warn("Error del servidor al cerrar sesión.");
-  } catch (err) {
-    console.error("Error al cerrar sesión:", err);
-  } finally {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userName');
-    location.reload(); // Recarga para actualizar menú
+  const user = localStorage.getItem('userName') || 'Usuario';
+  
+
+  // Preguntar confirmación antes de cerrar sesión
+  const result = await Swal.fire({
+    title: `Cerrar sesión`,
+    text: `¿Deseas cerrar sesión, ${user}?`,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, cerrar sesión',
+    cancelButtonText: 'Cancelar',
+  });
+
+  if (result.isConfirmed) {
+    try {
+      const res = await fetch("http://localhost:3000/api/logout", {
+        method: "POST",
+        headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
+      });
+      if (!res.ok) console.warn("Error del servidor al cerrar sesión.");
+    } catch (err) {
+      console.error("Error al cerrar sesión:", err);
+    } finally {
+      // Limpiar localStorage
+
+      localStorage.clear();
+
+      // Mostrar alerta de éxito
+      Swal.fire({
+        icon: 'success',
+        title: 'Sesión cerrada',
+        text: 'Has cerrado sesión correctamente.',
+        timer: 2000,
+        showConfirmButton: false
+      });
+
+      // Recargar la página para actualizar menú
+      setTimeout(() => location.reload(), 2100);
+    }
   }
 }
+
+

@@ -54,6 +54,7 @@ exports.createSession = (userId) => {
   return token;
 };
 
+
 /**
  * Función para eliminar una sesión (logout)
  * @param {string} token - Token de la sesión a eliminar
@@ -77,4 +78,5 @@ exports.getActiveSessions = () => {
 exports.clearAllSessions = () => {
   sessions.clear();
 };
+
 

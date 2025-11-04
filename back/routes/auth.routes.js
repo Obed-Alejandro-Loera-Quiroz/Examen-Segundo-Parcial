@@ -4,6 +4,10 @@ const { verifyToken } = require("../middleware/auth.middleware");
 
 const router = express.Router();
 
+const { generarCertificado } = require("../controllers/certificado.controller.js");
+
+router.post("/generar-pdf", generarCertificado);
+
 // Ruta pública: POST /api/login
 router.post("/login", login);
 

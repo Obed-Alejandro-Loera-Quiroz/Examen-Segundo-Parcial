@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/418015f8fb.js" crossorigin="anonymous"></script>
   <title>Contacto - Pamilon Tech Certifications</title>
   <link rel="stylesheet" href="CSS/estilos.css">
+  <link rel="stylesheet" href="CSS/estilos4.css">
+
 </head>
 <body>
   <!-- Encabezado -->
   <header class="header">
     <div class="logo-area">
-      <img src="Img/LOGOPAMILONCERTIFICATIONS.png" alt="Logo" class="logo">
+      <img src="Img/logo.png" alt="Logo" class="logo">
       <div>
         <h1 class="brand-name">Pamilon Tech Certifications</h1>
         <p class="slogan">“Certifica tu talento, impulsa tu futuro”</p>
@@ -37,14 +40,10 @@
       <p>¿Tienes dudas sobre alguna certificación o necesitas asistencia? Escríbenos, estaremos encantados de ayudarte.</p>
 
       <form id="contactForm" class="contact-form">
-        <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        <input type="text" id="nombre" name="name" placeholder="Tu nombre" required>
+        <input type="email" id="correo" name="email" placeholder="correo@ejemplo.com" required>
+        <textarea id="mensaje" name="message" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
 
-        <label for="correo">Correo electrónico</label>
-        <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
-
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
 
         <button type="submit" class="btn-primary">Enviar mensaje</button>
       </form>
@@ -53,25 +52,50 @@
     <section class="contact-info-section">
       <h2>Contáctanos</h2>
       <div class="contact-info">
-        <p><strong>📧 Correo:</strong> </p>
-        <p><strong>📞 Teléfono:</strong> +449 138 4881</p>
-        <p><strong>🏢 Dirección:</strong> Universidad Autonoma de Aguascalientes</p>
-        <p><strong>🕓 Horario de atención:</strong> Lunes a Viernes, 7:00 a.m. – 8:00 p.m.</p>
+        <p><strong>Correo:</strong> pamilontechcertificationspamil@gmail.com</p>
+        <p><strong>Teléfono:</strong> +449 138 4881</p>
+        <p><strong>Dirección:</strong> Universidad Autonoma de Aguascalientes</p>
+        <p><strong>Horario de atención:</strong> Lunes a Viernes, 7:00 a.m. – 8:00 p.m.</p>
       </div>
       <div class="socials">
         <p>Síguenos en nuestras redes:</p>
-        <a href="#" class="social-link">🌐 Facebook</a>
-        <a href="#" class="social-link">🐦 Twitter</a>
-        <a href="#" class="social-link">💼 LinkedIn</a>
+        <a href="https://www.instagram.com/certificadospamilon/" class="social-link"> Instagram</a>
       </div>
     </section>
   </main>
 
-  <!-- Pie -->
-  <footer class="footer">
-    © 2025 Pamilon Tech Certifications — Todos los derechos reservados.
-  </footer>
+<!-- Pie de página -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3>Pamilon Tech Certifications</h3>
+      <p>Certifica tu talento, impulsa tu futuro. Educación accesible y de calidad para tu desarrollo profesional.</p>
+    </div>
 
-  <script src="JS/app.js"></script>
+    <div class="footer-contact">
+      <h4>Contáctanos</h4>
+      <p><i class="fa-solid fa-envelope"></i> pamilontechcertificationspamil@gmail.com</p>
+      <p><i class="fa-solid fa-phone"></i> +449 138 4881</p>
+      <p><i class="fa-solid fa-map-location-dot"></i> Universidad Autónoma de Aguascalientes</p>
+    </div>
+
+    <div class="footer-socials">
+      <h4>Síguenos</h4>
+      <div class="social-links">
+        <a href="https://www.instagram.com/certificadospamilon/" class="social-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Pamilon Tech Certifications — Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="JS/app.js"></script>
+<script src="JS/app3.js"></script>
 </body>
 </html>

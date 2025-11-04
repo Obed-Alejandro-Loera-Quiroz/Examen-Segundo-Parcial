@@ -1,0 +1,100 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f7f7f7;
+      color: #333;
+    }
+
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+    h1 {
+      color: #003366;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .cert-info {
+      background: #003366;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .cert-info h2 {
+      margin-top: 0;
+      color: #fff;
+    }
+
+    .cert-info p {
+      margin: 5px 0;
+      font-size: 15px;
+    }
+
+    .card {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 25px 30px;
+  border-radius: 12px;
+  margin: 20px auto;
+  width: 90%; /* Hace las tarjetas más anchas */
+  max-width: 750px; /* Evita que se estiren demasiado */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  font-size: 17px; /* Hace el texto un poco más grande */
+  line-height: 1.5;
+}
+
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 18px;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #005599;
+    }
+
+    .ok { color: green; font-weight: bold; }
+    .bad { color: red; font-weight: bold; }
+
+    .header .brand-name { color: white; }
+
+    .disabled-btn {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.exam-image-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.exam-image {
+  width: 80%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exam-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
